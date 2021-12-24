@@ -991,16 +991,23 @@ Nomor : @${stod.split('@')[0]}
 
 `
 
-menuu = `*Simple Menu*
+menuu = `*List Simple Menu*
+
+*Tools menu*
 ${prefix}sticker
 ${prefix}toimg
+${prefix}tomp3
+${prefix}togif
+${prefix}tovideo
+
+*Download Menu*
 ${prefix}play
 ${prefix}ytmp3
 ${prefix}ytmp4
 ${prefix}igdl
 ${prefix}tiktok
 `
-sendButLocation(from, `*Hello... ${pushname}*`, `${menu}${menuu}\n\n*Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`command`,buttonText:{displayText:'All Menu'},type:1},{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1}], {quoted:mek, contextInfo: { mentionedJid: [dtod,otod,stod]}})
+sendButLocation(from, `*Bot WhatsApp*`, `\n${menuu}\n\n*Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`command`,buttonText:{displayText:'All Menu'},type:1},{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1}], {quoted:mek, contextInfo: { mentionedJid: [dtod,otod,stod]}})
 break
 case 'command':
  stod = `${sender}`
