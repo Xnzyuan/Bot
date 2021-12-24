@@ -52,6 +52,7 @@ const { exec } = require('child_process')
 const { fetchJson } = require('./lib/fetcher')
 const { uploadimg, upload } = require('./lib/uploadimg')
 const { webp2mp4File } = require('./lib/webp2mp4')
+const { webp2gifFile } = require("./lib/gif.js")
 const { lirikLagu } = require('./lib/lirik.js')
 const { y2mateA, y2mateV } = require('./lib/y2mate')
 const { wikiSearch } = require('./lib/wiki.js')
@@ -1089,6 +1090,32 @@ case 'command':
 }
 conn.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:mek})
 break
+case 'togif':
+               if ((isMedia && !mek.message.videoMessage || isQuotedSticker) && args.length == 0) {
+               reply(mess.wait)
+               encmediaaa = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+               mediaaa = await conn.downloadAndSaveMediaMessage(encmediaaa)
+               a = await webp2gifFile(mediaaa)
+               mp4 = await getBuffer(a.result)
+               conn.sendMessage(from, mp4, video, {mimetype: 'video/gif', quoted: mek, caption: mess.success})
+               fs.unlinkSync(mediaaa)
+               } else {
+               reply(mess.wrongFormat)
+}
+               break
+        case 'tovideo':
+               if ((isMedia && !mek.message.videoMessage || isQuotedSticker) && args.length == 0) {
+               reply(mess.wait)
+               encmediaaa = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+               mediaaa = await conn.downloadAndSaveMediaMessage(encmediaaa)
+               a = await webp2gifFile(mediaaa)
+               mp4 = await getBuffer(a.result)
+               conn.sendMessage(from, mp4, video, {mimetype: 'video/mp4', quoted: mek, caption: mess.success})
+               fs.unlinkSync(mediaaa)
+               } else {
+               reply(mess.wrongFormat)
+}
+               break
 case 'ownermenu':
 menu = `❏ 「 \`\`\`MENU OWNER\`\`\` 」
 ├────────────────────
@@ -4282,7 +4309,7 @@ Giliran = @${tty.player1.split('@')[0]}`
             if (!e.includes("Cannot set property 'mtype' of undefined")) {
             if (!e.includes("jid is not defined")) {
      console.log(color('|ERR|', 'red'), color(e, 'cyan'))
-     conn.sendMessage(`${settings.NomorOwner}@s.whatsapp.net`, `─────「 *Bot Error* 」─────\n\n\`\`\`${e}\`\`\`\n\n────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Bitch Boot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./denz.jpg'),sourceUrl:"https://wa.me/6281232646925?text=Assalamualaikum"}}})
+     conn.sendMessage(`${settings.NomorOwner}@s.whatsapp.net`, `─────「 *Bot Error* 」─────\n\n\`\`\`${e}\`\`\`\n\n────────────────────`, MessageType.text)
 	}
     }
     }
