@@ -3598,8 +3598,8 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
             sendFileFromUrl(res[0].link, document, {quoted: mek, mimetype: 'audio/mp3', filename: res[0].output})
 })
             break
-case 'play':
-				case 'ytplay':
+case 'music':
+				case 'lagu':
 				gog = args.join(" ")
               bonn = await fetchJson(`http://hadi-api.herokuapp.com/api/ytplay?q=${gog}`)
               title = `${bonn.result.title}`
@@ -3616,9 +3616,60 @@ Resolution: ${resolusi}
 Size: ${ukuran}
 
 Media akan dikirim, tunggu beberapa saat.
-*Jika error gunakan command #music*`
+*Jika error gunakan command #play*`
 conn.sendMessage(from, thumb, image, {quoted: mek, caption: mentu})
 conn.sendMessage(from, mp3, audio, {mimetype: 'audio/mp4',quoted: mek})
+break
+case 'play':
+case 'ytplay':
+if (args.length < 1) return reply('Apa Yang Mau Dicari?')
+teks = args.join(' ')
+reply(mess.wait)
+if (!teks.endsWith("-doc")){
+res = await yts(`${teks}`).catch(e => {
+reply('_[ ! ] Error Query Yang Anda Masukan Tidak Ada_')
+})
+reply(` Playing ${res.all[0].title}`)
+let thumbInfo = ` *Youtube Search*
+ *Judul :* ${res.all[0].title}
+ *ID Video :* ${res.all[0].videoId}
+ *Diupload Pada :* ${res.all[0].ago}
+ *Views :* ${res.all[0].views}
+ *Durasi :* ${res.all[0].timestamp}
+ *Channel :* ${res.all[0].author.name}
+*Link Channel :* ${res.all[0].author.url}
+
+*_Tunggu Proses Upload....._*
+`
+sendFileFromUrl(res.all[0].image, image, {quoted: mek, caption: thumbInfo})
+res = await y2mateA(res.all[0].url).catch(e => {
+reply('_[ ! ] Error Saat Memasuki Web Y2mate_')
+})
+sendFileFromUrl(res[0].link, audio, {quoted: mek, mimetype: 'audio/mp4', filename: res[0].output})
+}
+if (teks.endsWith("-doc")){
+const tec = teks.split("-doc")
+res = await yts(`${tec}`).catch(e => {
+reply('_[ ! ] Error Query Yang Anda Masukan Tidak Ada_')
+})
+reply(`.Playing ${res.all[0].title}`)
+let thumbInfo = `*${botname}* 
+ *Judul :* ${res.all[0].title}
+ *ID Video :* ${res.all[0].videoId}
+ *Diupload Pada :* ${res.all[0].ago}
+ *Views :* ${res.all[0].views}
+ *Durasi :* ${res.all[0].timestamp}
+ *Channel :* ${res.all[0].author.name}
+*Link Channel :* ${res.all[0].author.url}
+
+*_Tunggu Proses Upload....._*
+`
+sendFileFromUrl(res.all[0].image, image, {quoted: mek, caption: thumbInfo})
+res = await y2mateA(res.all[0].url).catch(e => {
+reply('_[ ! ] Error Saat Memasuki Web Y2mate_')
+})
+sendFileFromUrl(res[0].link, document, {quoted: mek, mimetype: 'audio/mp3', filename: res[0].output})
+}
 break
                /*     case 'play':
                             if (args.length === 0) return reply(`Kirim perintah *${prefix}play* _Judul lagu yang akan dicari_`)
