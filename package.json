@@ -19,9 +19,8 @@
     "bot-whatsapp-termux"
   ],
   "author": "dcode-denpa",
-  "license": "ISC",
   "dependencies": {
-    "@adiwajshing/baileys": "^3.5.3",
+    "@adiwajshing/baileys": "^3.5.2",
     "@vitalets/google-translate-api": "^7.0.0",
     "awesome-phonenumber": "^2.54.0",
     "axios": "^0.21.1",
