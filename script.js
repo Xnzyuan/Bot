@@ -1000,7 +1000,7 @@ ${prefix}ytmp4
 ${prefix}igdl
 ${prefix}tiktok
 `
-sendButLocation(from, ` `, `${menu}${menuu}\n\n*Perwira Bot WhatsApp*`, {thumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`command`,buttonText:{displayText:'All Menu'},type:1},{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1}], {quoted:mek, contextInfo: { mentionedJid: [dtod,otod,stod]}})
+sendButLocation(from, ` `, `${menu}${menuu}\n\n*Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`command`,buttonText:{displayText:'All Menu'},type:1},{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1}], {quoted:mek, contextInfo: { mentionedJid: [dtod,otod,stod]}})
 break
 case 'command':
  stod = `${sender}`
