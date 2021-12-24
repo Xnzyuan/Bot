@@ -34,6 +34,7 @@ const base64Img = require('base64-img')
 const ms = require('parse-ms')
 const figlet = require('figlet')
 const ytsd = require('ytsr')
+const yts = require( 'yt-search')
 const cheerio = require('cheerio')
 const fromData = require('form-data')
 const os = require('os')
@@ -1018,7 +1019,8 @@ ${prefix}tahta
 ${prefix}attp
 
 *Fun Menu*
-_Cooming soon_`
+_Cooming soon_
+`
 sendButLocation(from, `*Bot WhatsApp*`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek, contextInfo: { mentionedJid: [dtod,otod,stod]}})
 break
 case 'attp':
