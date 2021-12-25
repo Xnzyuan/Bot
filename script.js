@@ -74,6 +74,7 @@ const Exif = require('./lib/exif')
 const exif = new Exif()
 
 // DATABASE
+let tebakgambar = JSON.parse(fs.readFileSync('./database/tebakgambar.json'))
 const afk = JSON.parse(fs.readFileSync('./database/afk.json'))
 const setik = JSON.parse(fs.readFileSync('./database/setik.json'))
 const vien = JSON.parse(fs.readFileSync('./database/vien.json'))
@@ -878,6 +879,18 @@ return reply(parse)
 					conn.sendMessage(from, commandsDB[i].balasan, text, {thumbnail: ofrply, sendEphemeral: true, quoted:mek})
 					}
 			}
+//Tebak Gambar
+if (tebakgambar.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
+                kuis = true
+                jawaban = tebakgambar[sender.split('@')[0]]
+                if (budy.toLowerCase() == jawaban) {
+                	var http = randomNomor(100)
+                    atm.addKoinUser(sender, http, _uang)
+                    await reply(`*🎮 Tebak Gambar  🎮*\n\nJawaban Benar🎉\n`)
+                    delete tebakgambar[sender.split('@')[0]]
+                    fs.writeFileSync("./database/tebakgambar.json", JSON.stringify(tebakgambar))
+                }
+            }
 			// MUTE
         if (isMuted){
             if (!isGroupAdmins && !isOwner && !mek.key.fromMe) return
@@ -1624,6 +1637,25 @@ menu = `❏ 「 \`\`\`MENU OTHER\`\`\` 」
 └ ${prefix}detikvideo [ _reply video caption angka_ ]`
 katalog(menu)
 break
+case 'tebakgambar':
+              if (tebakgambar.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
+              get_result = await fetchJson(`https://x-restapi.herokuapp.com/api/tebak-gambar?apikey=BETA`)
+              ini_image = get_result.img
+              jawaban = get_result.jawaban
+              kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_ ')
+              ini_buffer = await getBuffer(ini_image)
+              conn.sendMessage(from, ini_buffer, image, { quoted: mek, caption: 'Silahkan jawab soal berikut ini\n\nPetunjuk :'+kisi_kisi+'\nWaktu : 30s' }).then(() => {
+              tebakgambar[sender.split('@')[0]] = jawaban.toLowerCase()
+              fs.writeFileSync("./database/tebakgambar.json", JSON.stringify(tebakgambar))
+})
+              await sleep(70000)
+              if (tebakgambar.hasOwnProperty(sender.split('@')[0])) {
+              console.log(color("Jawaban: " + jawaban))
+              reply("*Jawaban*: " + jawaban)
+              delete tebakgambar[sender.split('@')[0]]
+              fs.writeFileSync("./database/tebakgambar.json", JSON.stringify(tebakgambar))
+}
+              break
 case 'xopen':
 if (!arg) return reply(from, `Penggunaan ${prefix}${command} link/nama file`, mek)
 exec(`xdg-open ${arg}`, (error, stdout, stderr) => {
