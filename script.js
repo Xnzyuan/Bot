@@ -884,8 +884,6 @@ if (tebakgambar.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
                 kuis = true
                 jawaban = tebakgambar[sender.split('@')[0]]
                 if (budy.toLowerCase() == jawaban) {
-                	var http = randomNomor(100)
-                    atm.addKoinUser(sender, http, _uang)
                     await reply(`*🎮 Tebak Gambar  🎮*\n\nJawaban Benar🎉\n`)
                     delete tebakgambar[sender.split('@')[0]]
                     fs.writeFileSync("./database/tebakgambar.json", JSON.stringify(tebakgambar))
@@ -912,8 +910,14 @@ if (tebakgambar.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
 			    conn.groupRemove(from, [kic]).catch((e) => { reply(mess.only.Badmin) })
 			}
 			}
-			/*if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
-				if (m.key.remoteJid == 'status@broadcast') return
+if (budy.startsWith("s")) {
+		siminya = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${q}&lc=id`)
+		msgsimi = siminya.success
+		conn.sendMessage(from, `${msgsimi}\n                                   _ᴬᵘᵗᵒ ᵐᵉˢˢᵃᵍᵉ_`, text, {quoted: mek, sendEphemeral: true, contextInfo : {forwardingScore: 508, isForwarded: true}})
+}
+
+/*if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
+if (m.key.remoteJid == 'status@broadcast') return
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
                      sami = simi.success
                         conn.sendMessage(from, `${sami}`, text, {thumbnail: fs.readFileSync('./media/image/virgam.jpeg'), sendEphemeral: true, quoted:mek})
@@ -1036,6 +1040,7 @@ menuu = `*List Simple Menu*
 *Fun Menu*
  ${prefix}dadu
  ${prefix}suit
+ ${prefix}tictactoe
  ${prefix}tebakgambar
  ${prefix}katabijak
  ${prefix}motivasi
