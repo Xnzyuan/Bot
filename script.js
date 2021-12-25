@@ -1003,6 +1003,7 @@ ${prefix}toimg
 ${prefix}tomp3
 ${prefix}togif
 ${prefix}tovideo
+${prefix}semoji
 
 *Download Menu*
 ${prefix}play
@@ -1020,7 +1021,7 @@ ${prefix}tahta
 ${prefix}attp
 
 *Fun Menu*
-_Cooming soon..._
+_Coming soon..._
 `
 sendButLocation(from, `*Bot WhatsApp*`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek})
 break
