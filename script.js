@@ -257,6 +257,7 @@ try {
 		const isCmd = body.startsWith(prefix)
 		const arg = budy.slice(command.length + 2, budy.length)
 		const c = args.join(' ')
+                const pop = budy.slice(0)
                 const q = args.join(' ')
 		var pes = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''
 		const messagesD = pes.slice(0).trim().split(/ +/).shift().toLowerCase()
@@ -911,7 +912,7 @@ if (tebakgambar.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
 			}
 			}
 if (budy.startsWith("s")) {
-		siminya = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${q}&lc=id`)
+		siminya = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${pop}&lc=id`)
 		msgsimi = siminya.success
 		conn.sendMessage(from, `${msgsimi}\n                                   _ᴬᵘᵗᵒ ᵐᵉˢˢᵃᵍᵉ_`, text, {quoted: mek, sendEphemeral: true, contextInfo : {forwardingScore: 508, isForwarded: true}})
 }
@@ -1047,6 +1048,8 @@ menuu = `*List Simple Menu*
  ${prefix}pantun
  ${prefix}bucin
  ${prefix}fakta
+
+_Awali pesan dengan huruf s untuk melakukan chat dengan bot.\nContoh: s halo_
 `
 sendButLocation(from, `*Bot WhatsApp*`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek})
 break
