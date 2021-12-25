@@ -1049,7 +1049,7 @@ menuu = `*List Simple Menu*
  ${prefix}bucin
  ${prefix}fakta
 
-_Awali pesan dengan huruf s untuk melakukan chat dengan bot.\nContoh: s halo_
+_Awali pesan dengan huruf s untuk melakukan chat dengan bot._\n_Contoh: s halo_
 `
 sendButLocation(from, `*Bot WhatsApp*`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek})
 break
