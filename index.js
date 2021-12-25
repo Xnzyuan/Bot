@@ -21,7 +21,7 @@ nocache('./script.js', module => console.log(color('|TRM|'), color(`${module} Up
 
 async function starts() {
 conn.autoReconnect = ReconnectMode.onConnectionLost
-    conn.version = [2, 2143, 6]
+    conn.version = [2, 2147, 16]
     conn.logger.level = 'warn'
     conn.browserDescription = ['Dcode Denpa','Desktop','3.0']
     conn.on('qr', qr => {
