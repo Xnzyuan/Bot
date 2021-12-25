@@ -3216,7 +3216,7 @@ var nn = body.slice(9)
 			    conn.sendMessage(from, `${bot}`, text, {quoted: { key: { fromMe: false, participant: `${parti}@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { conversation: `${targetq}` }}})
 					break
             case 'hidetag':
-            if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
+            if (!isGroupAdmins && !isOwner) return reply(mess.only.ownerB)
             ht = body.slice(9)
                 members_id = []
 				for (let mem of groupMembers) {
