@@ -2107,6 +2107,7 @@ break
 				publik = false
 				reply('Sukses mengubah mode public ke self')
 			break
+case 'image':
 		case 'gimage':
 case 'googleimage':
 if (args.length < 1) return reply('Apa Yang Mau Dicari?')
@@ -2189,23 +2190,22 @@ sendFileFromUrl(res[0].thumb, image, {quoted: mek, caption: result}).catch(e => 
 })
 break
 case 'mediafire':
-if (args.length < 1) return reply('Link Nya Mana? ')
-if(!isUrl(args[0]) && !args[0].includes('mediafire')) return reply(mess.error.api)
-if (Number(filesize) >= 30000) return reply(`*Nama :* ${res[0].nama}
-*Ukuran :* ${res[0].size}
-*Link :* ${res[0].link}
+               
+               if (args.length < 1) return reply('Link Nya Mana? ')
+               if(!isUrl(args[0]) && !args[0].includes('mediafire')) return reply(mess.error.Iv)
+               reply(mess.wait)
+               teks = args.join(' ')
+               res = await mediafireDl(teks)
+               result = `
+*Data Berhasil Didapatkan!*
+\`\`\` Nama : ${res[0].nama}\`\`\`
+\`\`\` Ukuran : ${res[0].size}\`\`\`
+\`\`\` Link : ${res[0].link}\`\`\`
 
-_Maaf size melebihi batas maksimal, Silahkan klik link diatas_`)
-reply(mess.wait)
-teks = args.join(' ')
-res = await mediafireDl(teks)
-result = `*Nama :* ${res[0].nama}
-*Ukuran :* ${res[0].size}
-
-_File sedang dikirim, Silahkan tunggu beberapa menit_`
-reply(result)
-sendFileFromUrl(res[0].link, document, {mimetype: res[0].mime, filename: res[0].nama, quoted: mek})
-break
+_*Tunggu Proses Upload Media......*_`
+             reply(result)
+             sendFileFromUrl(res[0].link, document, {mimetype: res[0].mime, filename: res[0].nama, quoted: mek})
+             break
 				case 'kalkulator':
 				 var mtk = body.slice(12)
 				 teks = `${mtk} = ${Math_js.evaluate(mtk)}`
