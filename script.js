@@ -1011,30 +1011,37 @@ Nomor : @${stod.split('@')[0]}
 menuu = `*List Simple Menu*
 
 *Tools menu*
-${prefix}sticker
-${prefix}toimg
-${prefix}tomp3
-${prefix}togif
-${prefix}tovideo
-${prefix}semoji
+ ${prefix}sticker
+ ${prefix}toimg
+ ${prefix}tomp3
+ ${prefix}togif
+ ${prefix}tovideo
+ ${prefix}semoji
 
 *Download Menu*
-${prefix}play
-${prefix}ytmp3
-${prefix}ytmp4
-${prefix}igdl
-${prefix}tiktok
-${prefix}mediafire
-${prefix}image
+ ${prefix}play
+ ${prefix}ytmp3
+ ${prefix}ytmp4
+ ${prefix}igdl
+ ${prefix}tiktok
+ ${prefix}mediafire
+ ${prefix}image
 
 *Maker Menu*
-${prefix}photooxy
-${prefix}textpro
-${prefix}tahta
-${prefix}attp
+ ${prefix}photooxy
+ ${prefix}textpro
+ ${prefix}tahta
+ ${prefix}attp
 
 *Fun Menu*
-_Coming soon..._
+ ${prefix}dadu
+ ${prefix}suit
+ ${prefix}tebakgambar
+ ${prefix}katabijak
+ ${prefix}motivasi
+ ${prefix}pantun
+ ${prefix}bucin
+ ${prefix}fakta
 `
 sendButLocation(from, `*Bot WhatsApp*`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek})
 break
@@ -1637,12 +1644,52 @@ menu = `❏ 「 \`\`\`MENU OTHER\`\`\` 」
 └ ${prefix}detikvideo [ _reply video caption angka_ ]`
 katalog(menu)
 break
+case 'motivasi':
+bon = await fetchJson(`https://x-restapi.herokuapp.com/api/random-motivasi?apikey=BETA`)
+pesanya =`*_Quotes motivasi_*
+
+_${bon.motivasi}_
+`
+conn.sendMessage(from, pesanya, text, {quoted: mek})
+break
+case 'bucin':
+bon = await fetchJson(`https://x-restapi.herokuapp.com/api/random-bucin?apikey=BETA`)
+pesanya =`*_Bucin Quotes_*
+
+_${bon.bucin}_
+`
+conn.sendMessage(from, pesanya, text, {quoted: mek})
+break
+case 'pantun':
+bon = await fetchJson(`https://x-restapi.herokuapp.com/api/random-pantun?apikey=BETA`)
+pesanya =`*Pantun*
+
+${bon.pantun}
+`
+conn.sendMessage(from, pesanya, text, {quoted: mek})
+break
+case 'fakta':
+bon = await fetchJson(`https://x-restapi.herokuapp.com/api/random-fakta?apikey=BETA`)
+pesanya =`*_Fakta_*
+
+_${bon.fakta}_
+`
+conn.sendMessage(from, pesanya, text, {quoted: mek})
+break
+case 'katabijak':
+bon = await fetchJson(`https://x-restapi.herokuapp.com/api/random-katabijak?apikey=BETA`)
+pesanya =`*_Bijak Quotes_*
+
+_${bon.katabijak}_
+`
+conn.sendMessage(from, pesanya, text, {quoted: mek})
+break
 case 'tebakgambar':
               if (tebakgambar.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
               get_result = await fetchJson(`https://x-restapi.herokuapp.com/api/tebak-gambar?apikey=BETA`)
               ini_image = get_result.img
               jawaban = get_result.jawaban
-              kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_ ')
+              kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, ' _ ')
               ini_buffer = await getBuffer(ini_image)
               conn.sendMessage(from, ini_buffer, image, { quoted: mek, caption: 'Silahkan jawab soal berikut ini\n\nPetunjuk :'+kisi_kisi+'\nWaktu : 30s' }).then(() => {
               tebakgambar[sender.split('@')[0]] = jawaban.toLowerCase()
