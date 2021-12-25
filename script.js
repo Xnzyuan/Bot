@@ -1035,8 +1035,8 @@ case 'attp':
 case 'command':
  stod = `${sender}`
  listMsg = {
- buttonText: 'Keranjang Menu',
- footerText: 'Perwira Bot WhatsApp',
+ buttonText: '⎙ Menu',
+ footerText: '©Perwira Bot WhatsApp',
  description: `Hallo @${stod.split('@')[0]}\nSilahkan pilih menu disini`,
  sections: [
                      {
