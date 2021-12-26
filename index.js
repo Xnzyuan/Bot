@@ -97,16 +97,16 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
   }
 })*/
 
-/*conn.on('CB:action,,call', async json => {
+conn.on('CB:action,,call', async json => {
         const callerId = json[2][0][1].from;
         var vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + `${NamaOwner}` + '\n' + `ORG:Developer ${NamaBot}\n` + 'TEL;type=CELL;type=VOICE;waid=' + `${NomorOwner}` + ':+' + `${NomorOwner}` + '\n' + 'END:VCARD'
         conn.sendMessage(callerId, "\`\`\`[ ! ] CALL DETECTED [ ! ]\`\`\`\n\n\`\`\`Anda Di Block Karena Telepon Bot , Silahkan Hubungi Developer Bot Untuk Membuka Block\`\`\`", MessageType.text)
-        conn.sendMessage(callerId, { displayname: `${NamaOwner}`, vcard: vcard}, MessageType.contact, {contextInfo: { externalAdReply:{title: `Developer ${NamaBot}`,body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./conn.jpg'),sourceUrl:`https://wa.me/6285866295942?text=Assalamualaikum`}}})
+        conn.sendMessage(callerId, { displayname: `${NamaOwner}`, vcard: vcard}, MessageType.contact, {contextInfo: { externalAdReply:{title: `Developer ${NamaBot}`,body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./denz.jpg'),sourceUrl:`https://wa.me/6281232646925?text=Assalamualaikum`}}})
         await sleep(5000)
         await conn.blockUser(callerId, "add")
         })
         
-	conn.on('message-delete', async (m) => {
+	/*conn.on('message-delete', async (m) => {
 if (!m.key.fromMe && antidelete) {
 if (!m.key.remoteJid == 'status@broadcast') return
 m.message = (Object.keys(m.message)[0] === 'ephemeralMessage') ? m.message.ephemeralMessage.message : m.message
