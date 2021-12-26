@@ -2824,26 +2824,26 @@ break
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 						buff = await conn.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							conn.sendMessage(_.jid, buff, image, { viewOnce:true, caption: `${body.slice(4)}`})
+							conn.sendMessage(_.jid, buff, image, { viewOnce:true, caption: `*[ Broadcast by Owner ]*\n\n\`\`\`${body.slice(4)}\`\`\`\n\n*Thanks*`})
 						}
 						reply(`Sukses mengirim Broadcast ${body.slice(4)}`)
 						} else if (isMedia && !mek.message.videoMessage || isQuotedVideo) {
 						const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 						buff = await conn.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							conn.sendMessage(_.jid, buff, video, { viewOnce:true, caption: `${body.slice(4)}`})
+							conn.sendMessage(_.jid, buff, video, { viewOnce:true, caption: `*[ Broadcast by Owner ]*\n\n\`\`\`${body.slice(4)}\`\`\`\n\n*Thanks*`})
 						}
 						reply(`Sukses mengirim Broadcast ${body.slice(4)}`)
 						} else if (isMedia && !mek.message.videoMessage || isQuotedVideo) {
 						const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 						buff = await conn.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							conn.sendMessage(_.jid, buff, video, { mimetype: Mimetype.gif, quoted: finv, contextInfo: { forwardingScore: 508, isForwarded: true}, caption: `${body.slice(4)}` })
+							conn.sendMessage(_.jid, buff, video, { mimetype: Mimetype.gif, quoted: finv, contextInfo: { forwardingScore: 508, isForwarded: true}, caption: `*[ Broadcast by Owner ]*\n\n\`\`\`${body.slice(4)}\`\`\`\n\n*Thanks*`})
 						}
 						reply(`Sukses mengirim Broadcast ${body.slice(4)}`)
 					} else {
 						for (let _ of anu) {
-							sendMess(_.jid, `${body.slice(4)}`)
+							sendMess(_.jid, `*[ Broadcast by Owner ]*\n\n\`\`\`${body.slice(4)}\`\`\`\n\n*Thanks*`)
 						}
 						reply(`Sukses mengirim Broadcast:\n${body.slice(4)}`)
 					}
