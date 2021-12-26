@@ -257,7 +257,7 @@ try {
 		const isCmd = body.startsWith(prefix)
 		const arg = budy.slice(command.length + 2, budy.length)
 		const c = args.join(' ')
-                const pop = budy.slice(4)
+                const pop = budy.slice(5)
                 const q = args.join(' ')
 		var pes = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''
 		const messagesD = pes.slice(0).trim().split(/ +/).shift().toLowerCase()
