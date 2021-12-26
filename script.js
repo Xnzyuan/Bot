@@ -1051,7 +1051,7 @@ menuu = `*List Simple Menu*
 
 _Awali pesan dengan huruf ${prefix}bot untuk melakukan chat dengan bot._\n_Contoh: ${prefix}bot halo_
 `
-sendButLocation(from, `*Bot WhatsApp*\n\n_*Note* : Dilarang menelfon Bot, melanggar? Block._`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek})
+sendButLocation(from, `*Bot WhatsApp*\n\n*Note* : \n_Dilarang menelfon Bot, melanggar? Block._\n\n_Jika media tidak dikirim coba ulangi lagi._`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek})
 break
 case 'attp':
        try {
