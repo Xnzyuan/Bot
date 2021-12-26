@@ -1247,7 +1247,7 @@ case 'readall':
               totalchat.map( async ({ jid }) => {
               await conn.chatRead(jid)
 })
-              reply(`\`\`\`Berhasil membaca ${unread.length} Chat !\`\`\``)
+              reply(`\`\`\`Berhasil membaca seluruh Chat !\`\`\``)
               break	
 case 'makermenu':
 menu = `❏ 「 \`\`\`MENU MAKER\`\`\` 」
