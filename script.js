@@ -1243,6 +1243,12 @@ menu = `❏ 「 \`\`\`MENU DOWNLOAD\`\`\` 」
 └ ${prefix}ss [ _link_ ]`
 katalog(menu)
 break
+case 'readall':
+              totalchat.map( async ({ jid }) => {
+              await conn.chatRead(jid)
+})
+              reply(`\`\`\`Berhasil membaca ${unread.length} Chat !\`\`\``)
+              break	
 case 'makermenu':
 menu = `❏ 「 \`\`\`MENU MAKER\`\`\` 」
 ├────────────────────
