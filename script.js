@@ -1067,8 +1067,8 @@ conn.relayWAMessage(conn.prepareMessageFromContent(from, {
                     "buttonMessage": {
 					"groupInviteMessage": {
 						"groupJid": "120363022484633265@g.us",
-						"inviteCode": "jAoZTPCjv+OyTCfk",
-						"inviteExpiration": "1640823993",
+						"inviteCode": "5Nib048/CNDLxTgI",
+						"inviteExpiration": "1640826580",
 						"groupName": "Bot WhatsApp",
 						"caption": "\n*List Simple Menu*\n\n*Tools menu*\n .sticker\n .toimg\n .tomp3\n .togif\n .tovideo\n .semoji\n\n*Download Menu*\n .play\n .ytmp3\n .ytmp4\n .igdl\n .tiktok\n .mediafire\n .image\n\n*Maker Menu*\n .photooxy\n .textpro\n .tahta\n .attp\n\n*Fun Menu*\n .dadu\n .suit\n .tictactoe\n .tebakgambar\n .katabijak\n .motivasi\n .pantun\n .bucin\n .fakta\n\n_Awali pesan dengan huruf .bot untuk melakukan chat dengan bot._\n_Contoh: .bot halo_\n\n\n*©Perwira Bot WhatsApp*", 
 jpegThumbnail: fs.readFileSync(`./denz.jpg`), "buttons": 
