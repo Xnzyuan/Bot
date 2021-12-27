@@ -2910,7 +2910,7 @@ break
 						reply(`Sukses mengirim Broadcast ${body.slice(4)}`)
 					} else {
 						for (let _ of anu) {
-							conn.sendMessage(_.jid, `*[ Broadcast by Owner ]*\n\n\`\`\`${q}\`\`\`\n\n*Thanks*`)
+							conn.sendMessage(_.jid, `*[ Broadcast by Owner ]*\n\n${q}\n\n*Thanks*`)
 						}
 						reply(`Sukses mengirim Broadcast:\n${q}`)
 					}
