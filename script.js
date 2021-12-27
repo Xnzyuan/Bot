@@ -881,12 +881,12 @@ return reply(parse)
 					}
 			}
 //Tebak Gambar
-if (tebakgambar.hasOwnProperty(sender.split('@')[0]) && !isCmd) {
+if (tebakgambar.hasOwnProperty(from.split('@')[0]) && !isCmd) {
                 kuis = true
-                jawaban = tebakgambar[sender.split('@')[0]]
+                jawaban = tebakgambar[from.split('@')[0]]
                 if (budy.toLowerCase() == jawaban) {
                     await reply(`*🎮 Tebak Gambar  🎮*\n\nJawaban Benar🎉\n`)
-                    delete tebakgambar[sender.split('@')[0]]
+                    delete tebakgambar[from.split('@')[0]]
                     fs.writeFileSync("./database/tebakgambar.json", JSON.stringify(tebakgambar))
                 }
             }
@@ -1069,7 +1069,7 @@ conn.relayWAMessage(conn.prepareMessageFromContent(from, {
 						"inviteCode": "5Nib048/CNDLxTgI",
 						"inviteExpiration": "1640826580",
 						"groupName": "Bot WhatsApp",
-						"caption": "\n*List Simple Menu*\n\n*Tools menu*\n .sticker\n .toimg\n .tomp3\n .togif\n .tovideo\n .semoji\n\n*Download Menu*\n .play\n .ytmp3\n .ytmp4\n .igdl\n .tiktok\n .mediafire\n .image\n\n*Maker Menu*\n .photooxy\n .textpro\n .tahta\n .attp\n\n*Fun Menu*\n .dadu\n .suit\n .tictactoe\n .tebakgambar\n .katabijak\n .motivasi\n .pantun\n .bucin\n .fakta\n\n_Awali pesan dengan huruf .bot untuk melakukan chat dengan bot._\n_Contoh: .bot halo_\n\n\n*©Perwira Bot WhatsApp*", 
+						"caption": "*List Simple Menu*\n\n*Tools menu*\n .sticker\n .toimg\n .tomp3\n .togif\n .tovideo\n .semoji\n\n*Download Menu*\n .play\n .ytmp3\n .ytmp4\n .igdl\n .tiktok\n .mediafire\n .image\n\n*Maker Menu*\n .photooxy\n .textpro\n .tahta\n .attp\n\n*Fun Menu*\n .dadu\n .suit\n .tictactoe\n .tebakgambar\n .katabijak\n .motivasi\n .pantun\n .bucin\n .fakta\n\n_Awali pesan dengan huruf .bot untuk melakukan chat dengan bot._\n_Contoh: .bot halo_\n\n\n*©Perwira Bot WhatsApp*", 
 jpegThumbnail: fs.readFileSync(`./denz.jpg`)
 					}
 				}, {contextInfo: {}}))
@@ -1760,21 +1760,21 @@ _${bon.katabijak}_
 conn.sendMessage(from, pesanya, text, {quoted: mek})
 break
 case 'tebakgambar':
-              if (tebakgambar.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
+              if (tebakgambar.hasOwnProperty(from.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
               get_result = await fetchJson(`https://x-restapi.herokuapp.com/api/tebak-gambar?apikey=BETA`)
               ini_image = get_result.img
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, ' _ ')
               ini_buffer = await getBuffer(ini_image)
               conn.sendMessage(from, ini_buffer, image, { quoted: mek, caption: 'Silahkan jawab soal berikut ini\n\nPetunjuk :'+kisi_kisi+'\nWaktu : 30s' }).then(() => {
-              tebakgambar[sender.split('@')[0]] = jawaban.toLowerCase()
+              tebakgambar[from.split('@')[0]] = jawaban.toLowerCase()
               fs.writeFileSync("./database/tebakgambar.json", JSON.stringify(tebakgambar))
 })
               await sleep(70000)
-              if (tebakgambar.hasOwnProperty(sender.split('@')[0])) {
+              if (tebakgambar.hasOwnProperty(from.split('@')[0])) {
               console.log(color("Jawaban: " + jawaban))
               reply("*Jawaban*: " + jawaban)
-              delete tebakgambar[sender.split('@')[0]]
+              delete tebakgambar[from.split('@')[0]]
               fs.writeFileSync("./database/tebakgambar.json", JSON.stringify(tebakgambar))
 }
               break
