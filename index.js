@@ -94,11 +94,9 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
     teks = `- [ Group Setting Change ] -\n\nEdit Group info telah ditutup untuk member\nSekarang hanya admin group yang dapat mengedit info Group Ini`
     conn.sendMessage(metdata.id, teks, MessageType.text, {quoted: fkontakk})
     console.log(color('|TRM|'), color(`Group Setting Change In ${metdata.subject}`,  'cyan'))
-  }
-else if(anu.add && mem.includes(conn.user.jid)) {
+  } else if(anu.add && mem.includes(conn.user.jid)) {
             conn.sendMessage(anu.jid, 'Halo! Terima Kasih sudah Mengundangku, Jika ingin Menggunakan Bot Ketik ${prefix}menu', 'conversation')
-            }
-             if (anu.action == 'add' && !mem.includes(conn.user.jid)) {
+            } else if(anu.add && !mem.includes(conn.user.jid)) {
                 mdata = await conn.groupMetadata(anu.jid)
                 memeg = mdata.participants.length
             	num = anu.participants[0]
@@ -112,8 +110,7 @@ else if(anu.add && mem.includes(conn.user.jid)) {
                 buttonsMessage = { contentText: `${teks}`, footerText: 'Bot WhatsApp', imageMessage: imageMsg, buttons: buttons, headerType: 4 }
                 prep = await conn.prepareMessageFromContent(mdata.id,{buttonsMessage},{})
                 conn.relayWAMessage(prep)
-} 
-else if(anu.remove && !mem.includes(conn.user.jid)) {
+} else if(anu.remove && !mem.includes(conn.user.jid)) {
                 mdata = await conn.groupMetadata(anu.jid)
             	num = anu.participants[0]
                 let w = conn.contacts[num] || { notify: num.replace(/@.+/, '') }
