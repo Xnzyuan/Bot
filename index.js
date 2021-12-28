@@ -98,6 +98,7 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
 
 conn.on('group-participants-update', async (anu) => {
 try {
+const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
 			    mem = anu.participants[0]
 			    console.log(anu)
                 try {
