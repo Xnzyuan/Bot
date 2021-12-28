@@ -1355,7 +1355,7 @@ Contoh: ${prefix}fire Perwira
 /glowrainbow2
 /yellow3d
 /watermelon
-/matrix
+/matrix2
 /material
 /glowbutterfly
 /blackwood
@@ -1376,10 +1376,18 @@ Contoh: ${prefix}wings Perwira
 /glitch teks1/teks2
 /wings
 /beach
-/mascot
-/neon
+/wolf
+/wolf2
+/technology
+/matrix
 `
 conn.sendMessage(from, menu, text, {quoted: mek})
+break
+case 'technology':
+if (args.length < 1) return reply(`Masukkan teksnya
+Contoh: ${prefix}${command} Perwira`)
+imagt = await getBuffer(`http://hadi-api.herokuapp.com/api/textpro/futuristic-technology?teks=${encodeURI(q)}`)
+conn.sendMessage(from, imagt, image, {quoted: mek, caption: "_Sudah jadi kak_"})
 break
 case 'tahta':
 if (args.length < 1) return reply(`Masukkan teksnya
@@ -1396,14 +1404,14 @@ imagt = await getBuffer(`http://hadi-api.herokuapp.com/api/textpro/neon-devil-wi
 conn.sendMessage(from, imagt, image, {quoted: mek, caption: "_Sudah jadi kak_"})
 break
 
-case 'neon':
+case 'matrix':
 if (args.length < 1) return reply(`Masukkan teksnya
 Contoh: ${prefix}${command} Perwira`)
-imagt = await getBuffer(`http://hadi-api.herokuapp.com/api/textpro/futuristic-technology?teks=${encodeURI(q)}`)
+imagt = await getBuffer(`https://api.zeks.me/api/matrix?apikey=PerwiraGans&text=${q}`)
 conn.sendMessage(from, imagt, image, {quoted: mek, caption: "_Sudah jadi kak_"})
 break
 
-case 'mascot':
+case 'wolf2':
 if (args.length < 1) return reply(`Masukkan teksnya
 Contoh: ${prefix}${command} Perwira`)
 imagt = await getBuffer(`http://hadi-api.herokuapp.com/api/textpro/black-white-bear-mascot?teks=${encodeURI(q)}`)
@@ -1423,6 +1431,14 @@ gh = args.join(" ")
 teks1 = gh.split("/")[0];
 teks2 = gh.split("/")[1];
 imagt = await getBuffer(`http://hadi-api.herokuapp.com/api/textpro/tiktok?teks1=${teks1}&&teks2=${teks2}`)
+conn.sendMessage(from, imagt, image, {quoted: mek, caption: "_Sudah jadi kak_"})
+break
+case 'wolf':
+if (args.length < 1) return reply("Masukkan teksnya\nContoh : #glitch Perwira/Bot WhatsApp")
+gh = args.join(" ")
+teks1 = gh.split("/")[0];
+teks2 = gh.split("/")[1];
+imagt = await getBuffer(`https://api.zeks.me/api/wolflogo?apikey=PerwiraGans&text1=${teks2}&text2=${teks1}`)
 conn.sendMessage(from, imagt, image, {quoted: mek, caption: "_Sudah jadi kak_"})
 break
 case 'fire':
@@ -1615,7 +1631,7 @@ Contoh: ${prefix}${command} Perwira`)
 imagt = await getBuffer(`http://hadi-api.herokuapp.com/api/photoxy/summer-watermelon?teks=${encodeURI(q)}`)
 conn.sendMessage(from, imagt, image, {quoted: mek, caption: "_Sudah jadi kak_"})
 break
-case 'matrix':
+case 'matrix2':
 if (args.length < 1) return reply(`Masukkan teksnya
 Contoh: ${prefix}${command} Perwira`)
 imagt = await getBuffer(`http://hadi-api.herokuapp.com/api/photoxy/under-web-matrix?teks=${encodeURI(q)}&&background=2`)
@@ -2571,50 +2587,7 @@ if (Number(oi2) >= 50) return reply('Kebanyakan!')
 	  }
 }
 	  break
-	case 'halloween':
-	if (!arg) return reply(from, `Penggunaan ${prefix}halloween teks`, mek)
-	sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/halloween?text=${arg}&apikey=${HunterApi}`)
-   break
-   case 'vampire':
-   if (!arg) return reply(from, `Penggunaan ${prefix}vampire teks`, mek)
-   sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/vampire?text=${arg}&apikey=${HunterApi}`)
-   break
-   case 'codetxt':
-   if (!arg) return reply(from, `Penggunaan ${prefix}codetxt teks`, mek)
-   sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/maker/carbon?code=${arg}&apikey=${HunterApi}`)
-   break
-case 'matrix':
-				if (!arg) return reply(from, `Penggunaan ${prefix}matrix teks`, mek)
-				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/matrix?text=${arg}&apikey=${HunterApi}`)
-				break
-				case 'googletxt':
-				if (!arg) return reply(from, `Penggunaan ${prefix}googletxt teks`, mek)
-				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/google?text=${arg}&apikey=${HunterApi}`)
-				break
-				case 'spiderman':
-				if (!arg) return reply(from, `Penggunaan ${prefix}sipderman teks`, mek)
-				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/spider?text=${arg}&apikey=${HunterApi}`)
-				break
-				case 'express':
-				if (!arg) return reply(from, `Penggunaan ${prefix}express teks`, mek)
-				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/express?text=${arg}&apikey=${HunterApi}`)
-				break
-				case 'dance':
-				if (!arg) return reply(from, `Penggunaan ${prefix}dance teks`, mek)
-				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/dance?text=${arg}&apikey=${HunterApi}`)
-				break
-				case 'blackbird':
-				if (!arg) return reply(from, `Penggunaan ${prefix}blackbird teks`, mek)
-				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/blackbird?text=${arg}&apikey=${HunterApi}`)
-				break
-				case 'text3d':
-				if (!arg) return reply(from, `Penggunaan ${prefix}text3d teks`, mek)
-				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/text3d?text=${arg}&apikey=${HunterApi}`)
-				break
-				case 'warrior':
-				if (!arg) return reply(from, `Penggunaan ${prefix}warrior teks`, mek)
-				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/warrior?text=${arg}&apikey=${HunterApi}`)
-				break
+	
 				case 'd':
 				case 'del':
 				case 'delete':
