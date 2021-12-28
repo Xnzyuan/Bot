@@ -1061,7 +1061,7 @@ butty = await getBuffer(gok.urlimage)
 conn.sendMessage(from, butty, image, {caption: "*Warning*\n_Dark Jokes_"})
 break
 case 'artikata':
-kunt = await fetchJson(`https://x-restapi.herokuapp.com/api/arti-kata?q=senja&apikey=BETA`)
+kunt = await fetchJson(`https://x-restapi.herokuapp.com/api/arti-kata?q=${q}&apikey=BETA`)
 conn.sendMessage(from, `*Kata:* ${q}\n*Artinya:* ${kunt.artikata}`, text, {quoted: mek})
 break
 case 'attp':
