@@ -121,7 +121,7 @@ const { text, extendedText, contact, location, liveLocation, image, video, stick
                 let v = conn.contacts[num] || { notify: num.replace(/@.+/, '') }
                 anu_user = v.vname || v.notify || num.split('@')[0]
                 time_wel = moment.tz('Asia/Jakarta').format("HH:mm")
-                teks = `*Hai...* @${num.split("@")[0]}\n\nTerima kasih sudah masuk di Grup Ini Intro Dulu Ya Biar Kenal\n\n*Nama:*\n*Umur:*\nAskot:\n\nJangan lupa baca deskripsi grup!\n\n*Semoga Betah*`
+                teks = `*Hai...* @${num.split("@")[0]}\n\nTerima kasih sudah masuk di Grup Ini Intro Dulu Ya Biar Kenal\n\n*Nama:*\n*Umur:*\n*Askot:*\n\nJangan lupa baca deskripsi grup!\n\n*Semoga Betah*`
 	            buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/welcome?nama=${anu_user}&descriminator=${time_wel}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://i.postimg.cc/rFkw8MpX/IMG-20210807-151325.jpg`)
                 buttons = [{buttonId: `#y`,buttonText:{displayText: 'Oke'},type:1}]
                 imageMsg = await conn.prepareMessage(mdata.id, buff, image)
@@ -139,14 +139,27 @@ const { text, extendedText, contact, location, liveLocation, image, video, stick
                 out = `Byee... Gausah balik lagi ya @${num.split("@")[0]}`
                 buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/goodbye?nama=${anu_user}&descriminator=${time_wel}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://i.postimg.cc/rFkw8MpX/IMG-20210807-151325.jpg`)
                 buttons = [{buttonId: `#t`,buttonText:{displayText: 'Bye'},type:1}]
-                imageMsg = (await conn.prepareMessageMedia((buff), 'imageMessage', {thumbnail: buff})).imageMessage
-                buttonsMessage = { contentText: `${out}`, footerText: 'Perwira Bot WhatsApp', imageMessage: imageMsg, buttons: buttons, headerType: 4 }
+                imageMsg = await conn.prepareMessage(mdata.id, buff, image)
+                buttonsMessage = { contentText: `${out}`, footerText: 'Perwira Bot WhatsApp', imageMessage: imageMsg.message.imageMessage, buttons: buttons, headerType: "IMAGE" }
                 prep = await conn.prepareMessageFromContent(mdata.id,{buttonsMessage},{contextInfo: {mentionedJid: [`${num.split("@")[0]}@s.whatsapp.net`]}})
                 conn.relayWAMessage(prep)
             }
 		} catch (e) {
+e = String(e)
+            if (!e.includes("this.isZero")) {
+            if (!e.includes("Cannot read property 'conversation' of null")) {
+            if (!e.includes("Cannot read property 'contextInfo' of undefined")) {
+            if (!e.includes("Cannot set property 'mtype' of undefined")) {
+            if (!e.includes("jid is not defined")) {
 			console.log('Error : %s', color(e, 'red'))
+conn.sendMessage(`6281232646925@s.whatsapp.net`, `─────「 *Bot Error* 」─────\n\n\`\`\`${e}\`\`\`\n\n────────────────────`, MessageType.text)
+	
 		}
+}
+}
+}
+}
+}
 })
 
 /*conn.on('CB:action,,call', async json => {
