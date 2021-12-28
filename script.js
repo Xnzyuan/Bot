@@ -257,7 +257,7 @@ try {
 		const isCmd = body.startsWith(prefix)
 		const arg = budy.slice(command.length + 2, budy.length)
 		const c = args.join(' ')
-                const pop = budy.slice(5)
+                const pop = budy.slice(0)
                 const q = args.join(' ')
 		var pes = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''
 		const messagesD = pes.slice(0).trim().split(/ +/).shift().toLowerCase()
@@ -412,8 +412,8 @@ const ftrol = {
                             itemCount : 123,
                             status: 1,
                             surface : 1,
-                            message: `${tampilUcapan} ${pushname}`, //Kasih namalu
-                            orderTitle: `${tampilUcapan} ${pushname}`,
+                            message : `By Perwira Kusuma`, //Kasih namalu
+                            orderTitle: `Owner Broadcast`,
                             thumbnail: dfrply, //Gambarnye
                             sellerJid: '0@s.whatsapp.net' 
                           }
@@ -748,7 +748,7 @@ if (!mek.key.remoteJid.endsWith('@g.us') && offline){
 				return Math.floor(teks)
 		}
 		const sendMess = (hehe, teks) => {
-			conn.sendMessage(hehe, teks, text)
+			conn.sendMessage(hehe, teks, text, {quoted: ftrol})
 		}
 		const mentions = (teks, memberr, id) => {
 			(id == null || id == undefined || id == false) ? conn.sendMessage(from, teks.trim(), extendedText, { contextInfo: { "mentionedJid": memberr } }) : conn.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": memberr } })
@@ -911,12 +911,13 @@ if (tebakgambar.hasOwnProperty(from.split('@')[0]) && !isCmd) {
 			    conn.groupRemove(from, [kic]).catch((e) => { reply(mess.only.Badmin) })
 			}
 			}
-if (budy.startsWith(`${prefix}bot`)) {
+if (isGroup) {
+if (!command) {
 		siminya = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${pop}&lc=id`)
 		msgsimi = siminya.success
 		conn.sendMessage(from, `${msgsimi}\n                                   _ᴬᵘᵗᵒ ᵐᵉˢˢᵃᵍᵉ_`, text, {quoted: mek, sendEphemeral: true, contextInfo : {forwardingScore: 508, isForwarded: true}})
 }
-
+}
 /*if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
 if (m.key.remoteJid == 'status@broadcast') return
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
