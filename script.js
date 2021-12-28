@@ -412,7 +412,7 @@ const ftrol = {
                             itemCount : 1,
                             status: 1,
                             surface : 1,
-                            message : `*Bot WhatsApp*`, //Kasih namalu
+                            message : `Bot WhatsApp`, //Kasih namalu
                             orderTitle: `Bot WhatsApp`,
                             thumbnail: dfrply, //Gambarnye
                             sellerJid: '0@s.whatsapp.net' 
