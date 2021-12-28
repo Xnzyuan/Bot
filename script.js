@@ -1053,7 +1053,7 @@ Ketik #rules sebelum menggunakan bot
 sendButLocation(from, `*Bot WhatsApp*`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek})
 break
 case 'bot':
-		siminya = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${pop}&lc=id`)
+		siminya = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${q}&lc=id`)
 		msgsimi = siminya.success
 		conn.sendMessage(from, `${msgsimi}\n                                   _ᴬᵘᵗᵒ ᵐᵉˢˢᵃᵍᵉ_`, text, {quoted: mek, sendEphemeral: true, contextInfo : {forwardingScore: 508, isForwarded: true}})
 break
