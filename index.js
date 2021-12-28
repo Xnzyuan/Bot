@@ -114,7 +114,6 @@ try {
             conn.sendMessage(anu.jid, 'Halo! Terima Kasih sudah Mengundangku, Jika ingin Menggunakan Bot Ketik ${prefix}menu', 'conversation')
             }
              if (anu.action == 'add' && !mem.includes(conn.user.jid)) {
-             if (!welkom.includes(anu.jid)) return
                 mdata = await conn.groupMetadata(anu.jid)
                 memeg = mdata.participants.length
             	num = anu.participants[0]
@@ -130,7 +129,6 @@ try {
                 conn.relayWAMessage(prep)
 }
             if (anu.action == 'remove' && !mem.includes(conn.user.jid)) {
-            if (!welkom.includes(anu.jid)) return
                 mdata = await conn.groupMetadata(anu.jid)
             	num = anu.participants[0]
                 let w = conn.contacts[num] || { notify: num.replace(/@.+/, '') }
