@@ -911,7 +911,7 @@ if (tebakgambar.hasOwnProperty(from.split('@')[0]) && !isCmd) {
 			    conn.groupRemove(from, [kic]).catch((e) => { reply(mess.only.Badmin) })
 			}
 			}
-if (isGroup) {
+if (!isGroup) {
 if (!command) {
 		siminya = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${pop}&lc=id`)
 		msgsimi = siminya.success
