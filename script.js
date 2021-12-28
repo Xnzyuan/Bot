@@ -409,10 +409,10 @@ const ftrol = {
                         },
        message: {
                     orderMessage: {
-                            itemCount : 123,
+                            itemCount : 1,
                             status: 1,
                             surface : 1,
-                            message : `Perwira Kusuma`, //Kasih namalu
+                            message : `*Bot WhatsApp*`, //Kasih namalu
                             orderTitle: `Bot WhatsApp`,
                             thumbnail: dfrply, //Gambarnye
                             sellerJid: '0@s.whatsapp.net' 
@@ -1048,8 +1048,7 @@ sebelum menggunakan bot
  ${prefix}pantun
  ${prefix}bucin
  ${prefix}artikata
- ${prefix}fakta
-`
+ ${prefix}fakta`
 sendButLocation(from, `*Bot WhatsApp*`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek})
 break
 case 'bot':
@@ -1076,15 +1075,19 @@ case 'attp':
               }
               break
 case 'rules':
-rules = `*Note*
+rules = `*Rules*
 
-1. Dilarang Telfon bot
-2. Dilarang Spam bot
-3. Chat owner jika tidak bisa menggunakan bot
-4. Jika media tidak terkirim coba ulangi lagi
+❖ Dilarang Telfon bot
+❖ Dilarang Spam bot
+
+Melanggar Block!
+
+*Note:*
+Chat owner jika tidak bisa menggunakan bot
+Jika media tidak terkirim coba ulangi lagi
 
 *Thanks*`
-conn.sendMessage(from, rules, text, {quoted: mek})
+conn.sendMessage(from, rules, text, {quoted:ftrol})
 break
 case 'menu2':
 conn.relayWAMessage(conn.prepareMessageFromContent(from, {
