@@ -94,7 +94,10 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
     teks = `- [ Group Setting Change ] -\n\nEdit Group info telah ditutup untuk member\nSekarang hanya admin group yang dapat mengedit info Group Ini`
     conn.sendMessage(metdata.id, teks, MessageType.text, {quoted: fkontakk})
     console.log(color('|TRM|'), color(`Group Setting Change In ${metdata.subject}`,  'cyan'))
-  } try {
+  }})
+
+conn.on('group-participants-update', async (anu) => {
+try {
 			    mem = anu.participants[0]
 			    console.log(anu)
                 try {
