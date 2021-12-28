@@ -68,16 +68,6 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
         
 	conn.on('group-update', async (anu) => { 
 	        mem = anu.participants[0]
-                try {
-                pp_user = await conn.getProfilePicture(mem)
-                } catch (e) {
-                pp_user = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
-            }
-                try {
-                pp_grup = await conn.getProfilePicture(anu.jid)
-                } catch (e) {
-                pp_grup = 'https://i.postimg.cc/SN54m6LW/SAVE-20210728-133334.jpg'
-            }
 		const metdata = await conn.groupMetadata(anu.jid)
     	const fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6283136505591-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${metdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285866295942:6285866295942\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
     if(anu.announce == 'false'){
@@ -108,6 +98,16 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
   } else if(anu.add && mem.includes(conn.user.jid)) {
             conn.sendMessage(metdata.id, 'Halo! Terima Kasih sudah Mengundangku, Jika ingin Menggunakan Bot Ketik ${prefix}menu', 'conversation')
             } else if(anu.add && !mem.includes(conn.user.jid)) {
+                try {
+                pp_user = await conn.getProfilePicture(mem)
+                } catch (e) {
+                pp_user = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
+            }
+                try {
+                pp_grup = await conn.getProfilePicture(anu.jid)
+                } catch (e) {
+                pp_grup = 'https://i.postimg.cc/SN54m6LW/SAVE-20210728-133334.jpg'
+            }
                 mdata = await conn.groupMetadata(anu.jid)
                 memeg = mdata.participants.length
             	num = anu.participants[0]
@@ -122,6 +122,16 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
                 prep = await conn.prepareMessageFromContent(metdata.id,{buttonsMessage},{})
                 conn.relayWAMessage(prep)
 } else if(anu.remove && !mem.includes(conn.user.jid)) {
+                try {
+                pp_user = await conn.getProfilePicture(mem)
+                } catch (e) {
+                pp_user = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
+            }
+                try {
+                pp_grup = await conn.getProfilePicture(anu.jid)
+                } catch (e) {
+                pp_grup = 'https://i.postimg.cc/SN54m6LW/SAVE-20210728-133334.jpg'
+            }
                 mdata = await conn.groupMetadata(anu.jid)
             	num = anu.participants[0]
                 let w = conn.contacts[num] || { notify: num.replace(/@.+/, '') }
