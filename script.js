@@ -1011,7 +1011,8 @@ Nomor : @${stod.split('@')[0]}
 menuu = `*List Simple Menu*
 
 *Attention*
-Ketik #rules sebelum menggunakan bot
+Ketik #rules 
+sebelum menggunakan bot
 
 *Tools menu*
  ${prefix}sticker
@@ -1048,7 +1049,6 @@ Ketik #rules sebelum menggunakan bot
  ${prefix}bucin
  ${prefix}artikata
  ${prefix}fakta
-
 `
 sendButLocation(from, `*Bot WhatsApp*`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek})
 break
