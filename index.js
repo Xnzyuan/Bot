@@ -67,7 +67,6 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
     })   
         
 	conn.on('group-update', async (anu) => { 
- const mem = anu.participants[0]
 		const metdata = await conn.groupMetadata(anu.jid)
     	const fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6283136505591-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${metdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285866295942:6285866295942\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
     if(anu.announce == 'false'){
@@ -95,57 +94,7 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
     teks = `- [ Group Setting Change ] -\n\nEdit Group info telah ditutup untuk member\nSekarang hanya admin group yang dapat mengedit info Group Ini`
     conn.sendMessage(metdata.id, teks, MessageType.text, {quoted: fkontakk})
     console.log(color('|TRM|'), color(`Group Setting Change In ${metdata.subject}`,  'cyan'))
-  } else if(anu.add && mem.includes(conn.user.jid)) {
-            conn.sendMessage(metdata.id, 'Halo! Terima Kasih sudah Mengundangku, Jika ingin Menggunakan Bot Ketik ${prefix}menu', 'conversation')
-            } else if(anu.add && !mem.includes(conn.user.jid)) {
-                try {
-                pp_user = await conn.getProfilePicture(mem)
-                } catch (e) {
-                pp_user = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
-            }
-                try {
-                pp_grup = await conn.getProfilePicture(anu.jid)
-                } catch (e) {
-                pp_grup = 'https://i.postimg.cc/SN54m6LW/SAVE-20210728-133334.jpg'
-            }
-                mdata = await conn.groupMetadata(anu.jid)
-                memeg = mdata.participants.length
-            	num = anu.participants[0]
-                let v = conn.contacts[num] || { notify: num.replace(/@.+/, '') }
-                anu_user = v.vname || v.notify || num.split('@')[0]
-                time_wel = moment.tz('Asia/Jakarta').format("HH:mm")
-                teks = `Hai ${anu_user}\nTerima kasih sudah masuk di Grup Ini, Intro Dulu Ya Biar Kenal\nNama:\nUmur:\nAskot:\n\nJangan lupa baca Deskripsi Grup\n*Semoga Betah*`
-	            buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/welcome?nama=${anu_user}&descriminator=${time_wel}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://i.postimg.cc/rFkw8MpX/IMG-20210807-151325.jpg`)
-                buttons = [{buttonId: `#y`,buttonText:{displayText: 'Oke'},type:1}]
-                imageMsg = (await conn.prepareMessageMedia((buff), 'imageMessage', {thumbnail: buff})).imageMessage
-                buttonsMessage = { contentText: `${teks}`, footerText: 'Bot WhatsApp', imageMessage: imageMsg, buttons: buttons, headerType: 4 }
-                prep = await conn.prepareMessageFromContent(metdata.id,{buttonsMessage},{})
-                conn.relayWAMessage(prep)
-} else if(anu.remove && !mem.includes(conn.user.jid)) {
-                try {
-                pp_user = await conn.getProfilePicture(mem)
-                } catch (e) {
-                pp_user = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
-            }
-                try {
-                pp_grup = await conn.getProfilePicture(anu.jid)
-                } catch (e) {
-                pp_grup = 'https://i.postimg.cc/SN54m6LW/SAVE-20210728-133334.jpg'
-            }
-                mdata = await conn.groupMetadata(anu.jid)
-            	num = anu.participants[0]
-                let w = conn.contacts[num] || { notify: num.replace(/@.+/, '') }
-                anu_user = w.vname || w.notify || num.split('@')[0]
-                time_wel = moment.tz('Asia/Jakarta').format("HH:mm")
-                memeg = mdata.participants.length
-                out = `Byee...\n> ${anu_user}`
-                buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/goodbye?nama=${anu_user}&descriminator=${time_wel}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://i.postimg.cc/rFkw8MpX/IMG-20210807-151325.jpg`)
-                buttons = [{buttonId: `#t`,buttonText:{displayText: 'Bye/nJujur sebenarnya aku sayang sekali sama dia'},type:1}]
-                imageMsg = (await conn.prepareMessageMedia((buff), 'imageMessage', {thumbnail: buff})).imageMessage
-                buttonsMessage = { contentText: `${out}`, footerText: 'Bot WhatsApp', imageMessage: imageMsg, buttons: buttons, headerType: 4 }
-                prep = await conn.prepareMessageFromContent(metdata.id,{buttonsMessage},{})
-                conn.relayWAMessage(prep)
-            }
+  }
 })
 
 /*conn.on('CB:action,,call', async json => {
