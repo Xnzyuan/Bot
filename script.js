@@ -2882,13 +2882,13 @@ break
 				conn.updatePresence(from, Presence.composing)
 				conn.groupLeave(from)
 						break
-case 'bc2':
+/*case 'bc2':
 if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
 anu = await conn.chats.all()
 for (let _ of anu) {
 conn.sendMessage(_.jid, `*[ Broadcast by Owner ]*\n\n\`\`\`${q}\`\`\`\n\n*Thanks*`)
 }
-break
+break*/
 				case 'bc':
 					conn.updatePresence(from, Presence.composing)
 					if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
@@ -2917,7 +2917,7 @@ break
 						reply(`Sukses mengirim Broadcast ${body.slice(4)}`)
 					} else {
 						for (let _ of anu) {
-							conn.sendMessage(_.jid, `*[ Broadcast by Owner ]*\n\n${q}\n\n*Thanks*`)
+							conn.sendMessage(_.jid, `*[ Broadcast by Owner ]*\n\n${budy.slice(4)}\n\n*Thanks*`)
 						}
 						reply(`Sukses mengirim Broadcast:\n${q}`)
 					}
