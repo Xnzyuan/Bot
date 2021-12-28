@@ -748,7 +748,7 @@ if (!mek.key.remoteJid.endsWith('@g.us') && offline){
 				return Math.floor(teks)
 		}
 		const sendMess = (hehe, teks) => {
-			conn.sendMessage(hehe, teks, text, { contextInfo: { forwardingScore: 508, isForwarded: true}})
+			conn.sendMessage(hehe, teks, text)
 		}
 		const mentions = (teks, memberr, id) => {
 			(id == null || id == undefined || id == false) ? conn.sendMessage(from, teks.trim(), extendedText, { contextInfo: { "mentionedJid": memberr } }) : conn.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": memberr } })
