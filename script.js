@@ -748,7 +748,7 @@ if (!mek.key.remoteJid.endsWith('@g.us') && offline){
 				return Math.floor(teks)
 		}
 		const sendMess = (hehe, teks) => {
-			conn.sendMessage(hehe, teks, text, { quoted: ftrol, contextInfo: { forwardingScore: 508, isForwarded: true}})
+			conn.sendMessage(hehe, teks, text, { contextInfo: { forwardingScore: 508, isForwarded: true}})
 		}
 		const mentions = (teks, memberr, id) => {
 			(id == null || id == undefined || id == false) ? conn.sendMessage(from, teks.trim(), extendedText, { contextInfo: { "mentionedJid": memberr } }) : conn.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": memberr } })
@@ -2917,7 +2917,7 @@ break*/
 						reply(`Sukses mengirim Broadcast ${body.slice(4)}`)
 					} else {
 						for (let _ of anu) {
-							conn.sendMessage(_.jid, `*[ Broadcast by Owner ]*\n\n${body.slice(4)}\n\n*Thanks*`)
+							sendMess(_.jid, `*[ Broadcast by Owner ]*\n\n${body.slice(4)}\n\n*Thanks*`)
 						}
 						reply(`Sukses mengirim Broadcast:\n${q}`)
 					}
