@@ -67,9 +67,7 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
     })   
         
 	conn.on('group-update', async (anu) => { 
-try {
-			    mem = anu.participants[0]
-			    console.log(anu)
+	        mem = anu.participants[0]
                 try {
                 pp_user = await conn.getProfilePicture(mem)
                 } catch (e) {
@@ -137,9 +135,7 @@ try {
                 buttonsMessage = { contentText: `${out}`, footerText: 'Bot WhatsApp', imageMessage: imageMsg, buttons: buttons, headerType: 4 }
                 prep = await conn.prepareMessageFromContent(metdata.id,{buttonsMessage},{})
                 conn.relayWAMessage(prep)
-            } } catch (e) {
-			console.log('Error : %s', color(e, 'red'))
-		}
+            }
 })
 
 /*conn.on('CB:action,,call', async json => {
