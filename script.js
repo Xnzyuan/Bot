@@ -1041,7 +1041,6 @@ menuu = `*List Simple Menu*
 *Fun Menu*
  ${prefix}dadu
  ${prefix}suit
- ${prefix}tictactoe
  ${prefix}tebakgambar
  ${prefix}darkjokes
  ${prefix}katabijak
