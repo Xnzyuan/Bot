@@ -67,7 +67,7 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
     })   
         
 	conn.on('group-update', async (anu) => { 
-	        mem = anu.participants[0]
+ const mem = anu.participants[0]
 		const metdata = await conn.groupMetadata(anu.jid)
     	const fkontakk = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(anu.jid ? { remoteJid: '6283136505591-1604595598@g.us' } : {})}, message: { "contactMessage":{"displayName": `${metdata.subject}`,"vcard":`BEGIN:VCARD\nVERSION:3.0\nN:2;Denz;;;\nFN:Denz\nitem1.TEL;waid=6285866295942:6285866295942\nitem1.X-ABLabel:Mobile\nEND:VCARD` }}}
     if(anu.announce == 'false'){
