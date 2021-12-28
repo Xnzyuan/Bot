@@ -911,13 +911,7 @@ if (tebakgambar.hasOwnProperty(from.split('@')[0]) && !isCmd) {
 			    conn.groupRemove(from, [kic]).catch((e) => { reply(mess.only.Badmin) })
 			}
 			}
-if (!isGroup) {
-if (!command) {
-		siminya = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${pop}&lc=id`)
-		msgsimi = siminya.success
-		conn.sendMessage(from, `${msgsimi}\n                                   _ᴬᵘᵗᵒ ᵐᵉˢˢᵃᵍᵉ_`, text, {quoted: mek, sendEphemeral: true, contextInfo : {forwardingScore: 508, isForwarded: true}})
-}
-}
+
 /*if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
 if (m.key.remoteJid == 'status@broadcast') return
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
@@ -1043,6 +1037,7 @@ Ketik #rules sebelum menggunakan bot
  ${prefix}attp
 
 *Fun Menu*
+ ${prefix}bot
  ${prefix}dadu
  ${prefix}suit
  ${prefix}tebakgambar
@@ -1056,6 +1051,11 @@ Ketik #rules sebelum menggunakan bot
 
 `
 sendButLocation(from, `*Bot WhatsApp*`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek})
+break
+case 'bot':
+		siminya = await fetchJson(`https://api-sv2.simsimi.net/v2/?text=${pop}&lc=id`)
+		msgsimi = siminya.success
+		conn.sendMessage(from, `${msgsimi}\n                                   _ᴬᵘᵗᵒ ᵐᵉˢˢᵃᵍᵉ_`, text, {quoted: mek, sendEphemeral: true, contextInfo : {forwardingScore: 508, isForwarded: true}})
 break
 case 'darkjokes':
 gok = await fetchJson(`https://x-restapi.herokuapp.com/api/random-darkjoke?apikey=BETA`)
