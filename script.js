@@ -1043,15 +1043,26 @@ menuu = `*List Simple Menu*
  ${prefix}suit
  ${prefix}tictactoe
  ${prefix}tebakgambar
+ ${prefix}darkjokes
  ${prefix}katabijak
  ${prefix}motivasi
  ${prefix}pantun
  ${prefix}bucin
+ ${prefix}artikata
  ${prefix}fakta
 
 _Awali pesan dengan huruf ${prefix}bot untuk melakukan chat dengan bot._\n_Contoh: ${prefix}bot halo_
 `
 sendButLocation(from, `*Bot WhatsApp*\n\n*Note* : \n\n_Dilarang menelfon Bot, melanggar? Block._`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek})
+break
+case 'darkjokes':
+gok = await fetchJson(`https://x-restapi.herokuapp.com/api/random-darkjoke?apikey=BETA`)
+butty = await getBuffer(gok.urlimage)
+conn.sendMessage(from, butty, image, {caption: "*Warning*\n_Dark Jokes_"})
+break
+case 'artikata':
+kunt = await fetchJson(`https://x-restapi.herokuapp.com/api/arti-kata?q=senja&apikey=BETA`)
+conn.sendMessage(from, `*Kata:* ${q}\n*Artinya:* ${kunt.artikata}`, text, {quoted: mek})
 break
 case 'attp':
        try {
