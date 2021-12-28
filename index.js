@@ -123,7 +123,7 @@ try {
                 teks = `*Hai...* @${num.split("@")[0]}\n\nTerima kasih sudah masuk di Grup Ini Intro Dulu Ya Biar Kenal\n\n*Nama:*\n*Umur:*\nAskot:\n\nJangan lupa baca deskripsi grup!\n\n*Semoga Betah*`
 	            buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/welcome?nama=${anu_user}&descriminator=${time_wel}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://i.postimg.cc/rFkw8MpX/IMG-20210807-151325.jpg`)
                 buttons = [{buttonId: `#y`,buttonText:{displayText: 'Oke'},type:1}]
-                imageMsg = await conn.prepareMessage(from, buff, image)
+                imageMsg = await conn.prepareMessage(mdata.id, buff, image)
                 buttonsMessage = { contentText: `${teks}`, footerText: 'Perwira Bot WhatsApp', imageMessage: imageMsg.message.imageMessage, buttons: buttons, headerType: "IMAGE" }
                 prep = await conn.prepareMessageFromContent(mdata.id,{buttonsMessage},{contextInfo: {mentionedJid: [`${num.split("@")[0]}@s.whatsapp.net`]}})
                 conn.relayWAMessage(prep)
