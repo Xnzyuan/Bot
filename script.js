@@ -2917,7 +2917,7 @@ break*/
 						reply(`Sukses mengirim Broadcast ${body.slice(4)}`)
 					} else {
 						for (let _ of anu) {
-							sendMess(_.jid, `*[ Broadcast by Owner ]*\n\n${body.slice(4)}\n\n*Thanks*`)
+						reply(_.jid, `*[ Broadcast by Owner ]*\n\n${body.slice(4)}\n\n*Thanks*`)
 						}
 						reply(`Sukses mengirim Broadcast:\n${q}`)
 					}
