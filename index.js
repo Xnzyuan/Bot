@@ -67,9 +67,6 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
     })   
         
 	conn.on('group-update', async (anu) => { 
-try {
-			    mem = anu.participants[0]
-			    console.log(anu)
                 try {
                 pp_user = await conn.getProfilePicture(mem)
                 } catch (e) {
