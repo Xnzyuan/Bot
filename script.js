@@ -412,8 +412,8 @@ const ftrol = {
                             itemCount : 123,
                             status: 1,
                             surface : 1,
-                            message : `By Perwira Kusuma`, //Kasih namalu
-                            orderTitle: `Owner Broadcast`,
+                            message : `Perwira Kusuma`, //Kasih namalu
+                            orderTitle: `Bot WhatsApp`,
                             thumbnail: dfrply, //Gambarnye
                             sellerJid: '0@s.whatsapp.net' 
                           }
@@ -1016,6 +1016,9 @@ Nomor : @${stod.split('@')[0]}
 
 menuu = `*List Simple Menu*
 
+*Attention*
+Ketik #rules sebelum menggunakan bot
+
 *Tools menu*
  ${prefix}sticker
  ${prefix}toimg
@@ -1051,9 +1054,8 @@ menuu = `*List Simple Menu*
  ${prefix}artikata
  ${prefix}fakta
 
-_Awali pesan dengan huruf ${prefix}bot untuk melakukan chat dengan bot._\n_Contoh: ${prefix}bot halo_
 `
-sendButLocation(from, `*Bot WhatsApp*\n\n*Note* : \n\n_Dilarang menelfon Bot, melanggar? Block._`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek})
+sendButLocation(from, `*Bot WhatsApp*`, `\n${menuu}\n\n*©Perwira Bot WhatsApp*`, {jpegThumbnail: fs.readFileSync(`./media/image/bitch boot.jpg`)}, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}], {quoted:mek})
 break
 case 'darkjokes':
 gok = await fetchJson(`https://x-restapi.herokuapp.com/api/random-darkjoke?apikey=BETA`)
@@ -1073,6 +1075,17 @@ case 'attp':
               	reply(e)
               }
               break
+case 'rules':
+rules = `*Note*
+
+1. Dilarang Telfon bot
+2. Dilarang Spam bot
+3. Chat owner jika tidak bisa menggunakan bot
+4. Jika media tidak terkirim coba ulangi lagi
+
+*Thanks*`
+conn.sendMessage(from, rules, text, {quoted: mek})
+break
 case 'menu2':
 conn.relayWAMessage(conn.prepareMessageFromContent(from, {
 					"groupInviteMessage": {
