@@ -280,7 +280,7 @@ try {
 			}
 		}
 		const botNumber = conn.user.jid
-		const ownerNumber = ["6281232646925@s.whatsapp.net",`${NomorOwner}@s.whatsapp.net`]
+		const ownerNumber = "6281232646925@s.whatsapp.net"
         const isGroup = from.endsWith('@g.us')
 		const sender = mek.key.fromMe ? conn.user.jid : isGroup ? mek.participant : mek.key.remoteJid
 		const senderNumber = sender.split("@")[0] 
