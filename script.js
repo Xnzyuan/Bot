@@ -1896,7 +1896,14 @@ case 'owner':
 	case 'creator':
 case 'developer':
 		case 'author':
-let ini_list = []
+vcardd = 'BEGIN:VCARD\n' 
+            + 'VERSION:3.0\n' 
+            + 'FN:PERWIRA\n' //Ini Nama kontak lu
+            + 'ORG: Owner bot\n' 
+            + 'TEL;type=CELL;type=VOICE;waid=6281232646925:+62 81232646925\n'  //ini kontak/nomor lu
+            + 'END:VCARD'
+conn.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { contextInfo: { forwardingScore: 508, isForwarded: true}} )
+/*let ini_list = []
 for (let i of ownerNumber) {
 const vname = conn.contacts[i] != undefined ? conn.contacts[i].vname || conn.contacts[i].notify : undefined
 ini_list.push({
@@ -1907,7 +1914,7 @@ ini_list.push({
 conn.sendMessage(from, {
 "displayName": `Developer ${NamaBot}`,
 "contacts": ini_list 
-}, 'contactsArrayMessage', { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true }})
+}, 'contactsArrayMessage', { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true }})*/
 break
 case 'addcmd': 
 case 'setcmd':
