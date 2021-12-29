@@ -1902,7 +1902,7 @@ vcardd = 'BEGIN:VCARD\n'
             + 'ORG: Owner bot\n' 
             + 'TEL;type=CELL;type=VOICE;waid=6281232646925:+62 81232646925\n'  //ini kontak/nomor lu
             + 'END:VCARD'
-conn.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { contextInfo: { forwardingScore: 508, isForwarded: true}} )
+conn.sendMessage(from, {displayname: "Jeff", vcard: vcardd}, MessageType.contact, { contextInfo: { forwardingScore: 508, isForwarded: true}} )
 /*let ini_list = []
 for (let i of ownerNumber) {
 const vname = conn.contacts[i] != undefined ? conn.contacts[i].vname || conn.contacts[i].notify : undefined
