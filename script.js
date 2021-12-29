@@ -1096,7 +1096,7 @@ case 'quotes':
 katas = await fetchJson(`https://api.zeks.me/api/quote?apikey=PerwiraGans`)
 katasy = `*Quotes*
 
-_${result.quotes}_
+_${katas.result.quotes}_
 `
 conn.sendMessage(from, katasy, text, {quoted: mek})
 break
