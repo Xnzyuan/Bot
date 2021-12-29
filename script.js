@@ -1126,9 +1126,9 @@ Chat owner jika tidak bisa menggunakan bot
 Jika media tidak terkirim coba ulangi lagi
 
 *Thanks*`
-sendButMessage(from, `*Attention*`, `${rules}`, [{buttonId: `yop`, buttonText: {displayText: "Oke"}, type:1}])
+sendButMessage(from, `*Attention*`, `${rules}`, [{buttonId: `#y`, buttonText: {displayText: "Oke"}, type:1}])
 break
-case 'yop':
+case '#y':
 sendButMessage(from, `*Jangan langgar ya kak*`, `Perwira Bot WhatsApp`, [{buttonId:`111`, buttonText: {displayText: "Oke"}, type:1}])
 break
 case 'menu2':
