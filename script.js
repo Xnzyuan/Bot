@@ -899,7 +899,7 @@ if (siapaaku.hasOwnProperty(from.split('@')[0]) && !isCmd) {
                 kuis = true
                 jawaban = siapaaku[from.split('@')[0]]
                 if (budy.toLowerCase() == jawaban) {
-                    await reply(`*🎮 Tebak Gambar  🎮*\n\nJawaban Benar🎉\n`)
+                    await reply(`*🎮 Tebak Siapa Aku  🎮*\n\nJawaban Benar🎉\n`)
                     delete siapaaku[from.split('@')[0]]
                     fs.writeFileSync("./database/siapaaku.json", JSON.stringify(siapaaku))
                 }
