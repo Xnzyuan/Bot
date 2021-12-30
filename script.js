@@ -752,8 +752,8 @@ if (!mek.key.remoteJid.endsWith('@g.us') && offline){
 			conn.sendMessage(hehe, teks, text, {quoted: ftrol})
 		}
 		const sendMess2 = (hehe, teks) => {
-conn.sendMessage(hehe, teks, extendedText)
-			/*sendButMessage(hehe, teks, "Perwira Bot WhatsApp", [{buttonId: `yyyy`, buttonText: {displayText: "Oke"}, type:1}])*/
+/*conn.sendMessage(hehe, teks, extendedText)*/
+			sendButMessage(hehe, teks, "Perwira Bot WhatsApp", [{buttonId: `yyyy`, buttonText: {displayText: "Oke"}, type:1}])
 		}
 		const mentions = (teks, memberr, id) => {
 			(id == null || id == undefined || id == false) ? conn.sendMessage(from, teks.trim(), extendedText, { contextInfo: { "mentionedJid": memberr } }) : conn.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": memberr } })
@@ -1062,7 +1062,7 @@ sebelum menggunakan bot
  ${prefix}darkjokes
  ${prefix}quotes
 `
-sendButMessage(from, `*Bot WhatsApp*`, `\n${menuu}\n\n*Perwira Bot WhatsApp*`, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`oke`,buttonText:{displayText:'Oke'},type:1}])
+sendButMessage(from, `*Bot WhatsApp*`, `\n${menuu}\n\n*Perwira Bot WhatsApp*`, [{buttonId:`owner`,buttonText:{displayText:'Owner'},type:1},{buttonId:`rules`,buttonText:{displayText:'Oke'},type:1}])
 break
 case 'siapaaku':
 if (siapaaku.hasOwnProperty(from.split('@')[0])) return reply("Selesaikan pertanyaan sebelumnya!")
