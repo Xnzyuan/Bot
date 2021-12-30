@@ -1451,7 +1451,7 @@ break
 case 'tahta':
 if (args.length < 1) return reply(`Masukkan teksnya
 Contoh: ${prefix}${command} Perwira`)
-donty = await getBuffer(`https://api.zeks.me/api/hartatahta?apikey=Rkm5VgPvmNWXm35NnTY0x0aCcT2&text=${q}`)
+donty = await getBuffer(`https://api.zeks.me/api/hartatahta?apikey=PerwiraGans&text=${q}`)
 conn.sendMessage(from, donty, image, {quoted: mek, caption: "_Sudah jadi kak_"})
 break
 case 'wings':
