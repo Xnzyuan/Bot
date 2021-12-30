@@ -752,7 +752,7 @@ if (!mek.key.remoteJid.endsWith('@g.us') && offline){
 			conn.sendMessage(hehe, teks, text, {quoted: ftrol})
 		}
 		const sendMess2 = (hehe, teks) => {
-conn.sendMessage(hehe, teks, extendedText, {quoted: ftrol})
+conn.sendMessage(hehe, teks, extendedText)
 			/*sendButMessage(hehe, teks, "Perwira Bot WhatsApp", [{buttonId: `yyyy`, buttonText: {displayText: "Oke"}, type:1}])*/
 		}
 		const mentions = (teks, memberr, id) => {
