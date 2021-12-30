@@ -1428,6 +1428,44 @@ Contoh: ${prefix}fire Perwira
 `
 conn.sendMessage(from, menu, text, {quoted: mek})
 break
+case 'mp3':
+					  try{
+        if (args.length > 1) {
+        const gtts = require('./lib/gtts')(args[0])
+        if (args.length < 2) return conn.sendMessage(from, 'Textnya mana gan?', text, {quoted: mek})
+        ngab = budy.slice(7)
+        ranm = getRandom('.mp3')
+        rano = getRandom('.ogg')
+        ngab.length > 600
+        ? reply('Textnya kebanyakan gan')
+        : gtts.save(ranm, ngab, function() {
+            exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
+                fs.unlinkSync(ranm)
+                buff = fs.readFileSync(rano)
+                if (err) return reply('Gagal gan:(')
+                conn.sendMessage(from, buff, audio, {quoted:mek})
+                fs.unlinkSync(rano)
+            })
+        })
+	} else if ( args.length === 1 ){
+		ngab = mek.message.extendedTextMessage.contextInfo.quotedMessage.conversation
+		const gtts = require('./lib/gtts')(args[0])
+        ranm = getRandom('.mp3')
+        rano = getRandom('.ogg')
+        gtts.save(ranm, ngab, function() {
+            exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
+                fs.unlinkSync(ranm)
+                buff = fs.readFileSync(rano)
+                if (err) return reply(mess.error.api)
+                conn.sendMessage(from, buff, audio, {quoted:mek})
+                fs.unlinkSync(rano)
+            })
+        })
+	}
+} catch (e){
+	reply(mess.error.api)
+}
+break 
 case 'textpro':
 menu =`*This is list of TextPro*
 Contoh: ${prefix}wings Perwira
