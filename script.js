@@ -3412,7 +3412,7 @@ break
 						const encmedia = isQuotedAudio ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 						buff = await conn.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							conn.sendMessage(_.jid, buff, audio, { quoted: ftrol })
+							conn.sendMessage(_.jid, buff, audio, { quoted: ftrol, ptt:true})
 						}
 						} else if (isMedia && !mek.message.videoMessage || isQuotedSticker) {
 						const encmedia = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
